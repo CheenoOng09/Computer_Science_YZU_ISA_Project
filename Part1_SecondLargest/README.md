@@ -52,7 +52,7 @@ Example 1 Output:
 ```
 
 
-## 🛠 Features
+## Features
 
 - Full bubble sort using address-based storage
 - Handles repeated values and outputs correctly even when only one unique number
