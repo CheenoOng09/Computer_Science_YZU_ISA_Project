@@ -1,0 +1,70 @@
+//Name: Mikollito Ong (林米克）
+//Student ID number: 1103558
+//This is a program to find the second largest integer in a given number of integers
+
+
+	LOAD R1 254 	// Input the number of Test Case from your keyboard
+START:
+	LOAD R2 254 	// Input for the number of Integers you want the program to read
+	ADD R3 R2 R0 	// COPY THE VALUE OF R2 to R3. R3 acts as a counter
+	ADD R4 R0 R0 	// SET R4 TO 0.
+	ADDI R4 5 	// SET THE STARTING ADDRESS TO 5 (COULD START WITH ANY VALUE)
+	LOAD R5 254 	// INPUT THE INTEGER OF THE ARRAY
+	STOREI R4 R5 	// STORE THE USER INPUT INTEGER IN THE ARRAY
+	ADDI R4 1 	// UPDATE THE ADDRESS FOR STORING THE NEXT ARRAY ELEMENT
+	ADDI R3 -1 	// R3 = R3 -1 (COUNTER FOR NUMBER OF INTEGERS HAS BEEN REDUCED TO 1)
+	JUMPNE R3 -4 	// IF R3 !=0 OR IF USER INPUT FOR R3 (COUNTER) != 0 MOVE 4 INSTRUCTIONS BACKWARDS, IF = 0, MOVE FORWARD BECAUSE WE HAVE SATISFIED THE NUMBER OF INTEGERS NEEDED TO INPUT
+
+// This section is to sort the array from lowest to highest
+	ADD R3 R2 R0 	// Reset the counter to it's initial value based on User Input in R2
+C: 
+	ADD R9 R2 R0	// Counter for number of swapping per iteration
+	ADDI R9 -1	// Value of counter for swapping per iteration
+	ADD R4 R0 R0 	// Set The Array to 0
+	ADDI R4 5	// Set the array to it's initial value (5)
+A:
+	ADD R6 R0 R0	// Set R6 TO 0
+	ADD R7 R0 R0	// Set R7 TO 0
+	ADD R8 R0 R0	// Set R8 to 0
+	LOADI R6 R4	// Load the value of R4 to R6 based on it's current index 
+	ADDI R4 1	// Access the next array element
+	LOADI R7 R4	// Load the value of R4 to R7 based on it's current index 
+	SUB R8 R6 R7 	// Subtract the integer from R6 and R7 then store the output on R8
+
+	JUMPGT R8 B 	// If R8 = R6 - R7 is > 0 - Means R6 is bigger than R7 and should jump to the integer swapping section
+
+	JUMPEQ R8 D	// If R8 = R6 - R7 is = 0 - Means R6 and R7 are equal and should move to the next array element
+
+	JUMPNE R8 D	// If R8 = R6 - R7 is < 0 - Means R6 is smaller than R7 and should move to the next array element
+B:
+	STOREI R4 R6 	// Insert the bigger integer in the 2nd element of the array
+	ADDI R4 -1	// Access the previous array element
+	STOREI R4 R7	// Insert the smaller integer in the 1st element of the array
+	ADDI R4 1	// Access the next array element
+D:
+	ADDI R9 -1 	// Decrement the counter for number of swapping per iteration by 1
+	JUMPNE R9 A	// Keep jumping to A until the R9 counter reaches 0
+	ADDI R3 -1	// Decrement the number of iteration needed by 1
+	JUMPNE R3 C	// Reset everything if number of iteration is not 0, if 0, that means you have finished sorting the array. Proceed to the next section (Finding the second largest integer)
+
+// This section is to find and print the second largest integer
+	ADD R6 R0 R0	// Set R6 TO 0
+	ADD R7 R0 R0	// Set R7 TO 0
+	ADD R8 R0 R0	// Set R8 TO 0
+	ADD R9 R2 R0	// Counter for number of times to compare integers per one iteration
+	ADDI R9 -1	// Counter for number of times to compare integers in one iteration minus one
+
+	LOADI R6 R4	// Load the value of R4 to R6 based on it's current index
+	ADDI R4 -1 	// We will start from the last element of the array to the first element of the array
+	LOADI R7 R4	// Load the value of R4 to R7 based on it's current index
+	SUB R8 R6 R7 	// Compare the two integers (if one is bigger, if one is smaller or if one is equal)
+
+	JUMPGT R8 4	// Jump to PC + 4 if the program has found a program smaller than that biggest integer. This is how we find the second largest integer in an array
+	ADDI R9 -1	// Decrement the counter for number of times to compare integers per one iteration by 1
+	JUMPEQ R9 2	// This jump is here in case the program could not find a 2nd largest integer. That means all the integers are similar value and should move to print any integer since they are all the same.
+	JUMPEQ R8 -7	// This jump is here if two integers are equals to each other the program should keep checking until the counter R9 = 0
+	STORE 255 R7 	// Output the second largest element in the monitor
+	ADDI R1 -1	// Decrement the number of test case by 1
+	JUMPNE R1 START	// Jump to the beginning if the number of test has not reached 0
+	HALT		// Terminates the program
+

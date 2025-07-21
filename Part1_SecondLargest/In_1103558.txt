@@ -1,0 +1,30 @@
+Input Example 1:
+
+IN:2
+IN:5
+IN:9
+IN:9
+IN:7
+IN:7
+IN:-1
+IN:6
+IN:8
+IN:5
+IN:9
+IN:9
+IN:0
+IN:2
+
+Input Example 2:
+IN:2
+IN:3
+IN:-1
+IN:-1
+IN:-1
+IN:6
+IN:1
+IN:-1
+IN:6
+IN:0
+IN:-20
+IN:6
