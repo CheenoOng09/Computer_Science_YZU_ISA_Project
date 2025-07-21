@@ -29,7 +29,7 @@ This repository contains a 3-part assignment completed as part of the *Intro to 
 - The goal is to demonstrate understanding of control flow, counters, and conditional logic using YZU-ISA instructions.
 
 **Files:**
-- `Part2_Average_Odd_Even/1103558_Project Proposal` – Proposed problem specification
+- `Part2/1103558_Project Proposal` – Proposed problem specification
 
 ---
 
