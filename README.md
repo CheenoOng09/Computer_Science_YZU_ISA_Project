@@ -14,10 +14,11 @@ This repository contains a 3-part assignment completed as part of the *Intro to 
 - Full documentation and screenshots provided.
 
 **Files:**
+- `Part1_SecondLargest/Second_Largest_Number.pdf` - Problem Description
 - `Part1_SecondLargest/Code_1103558.txt` – YZU-ISA code
 - `Part1_SecondLargest/In_1103558.txt` – Input file
 - `Part1_SecondLargest/Out_1103558.pdf` – Output screenshot
-- `Part1_SecondLargest/Revised_Proposal_with_Screenshot.pdf` – Problem description
+- `Part1_SecondLargest/YZU-ISA.pdf` – Instruction manual for YZU-ISA RISC-V Assembly Language Simulator
 - `Part1_SecondLargest/README.md` – Task explanation
 
 ---
